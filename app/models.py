@@ -9,8 +9,9 @@ class User(models.Model):
     phone = models.IntegerField(default = 0)
     email = models.EmailField(max_length=100)
     
-    def __str__(self):
-        return self.name
+    
+    def __str__(self) -> str:
+            return super().__str__()
 
 
 class Course(models.Model):
@@ -98,8 +99,8 @@ class Course(models.Model):
     price = models.IntegerField(default = 0)
         
 
-    def __str__(self):
-        return self.title
+    def __str__(self) -> str:
+            return super().__str__()
 
 
 class Communitie(models.Model):

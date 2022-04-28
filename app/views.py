@@ -1,10 +1,10 @@
-from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, JsonResponse
-
-from rest_framework import viewsets, status
+from django.shortcuts import get_object_or_404, render
+from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-from .models import Course, Communitie, User
+from app.models import Communitie, Course, User
+
 from .serializers import UserSerializer, CommunitieSerializer, CourseSerializer
 
 class UserViewSet(viewsets.ViewSet):
