@@ -9,7 +9,7 @@ from app.views import (ArticleDetails, ArticleView, CommunitieDetails,
                        UserView)
 
 urlpatterns = [
-    path('user/', UserView.as_view()),
+    path('user/', UserView.as_view(), name = 'user'),
     path('userdetails/<int:id>/', UserDetails.as_view()),
     
     path('course/', CourseView.as_view()),
