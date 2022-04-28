@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Communities, Courses, Users
 
-# Register your models here.
+admin.site.register(Communities, 
+                    Users,
+                    Courses)

@@ -1,3 +1,5 @@
+from email.policy import default
+from pyexpat import model
 from django.db import models
 
 # Create your models here.
@@ -121,3 +123,22 @@ class Courses(models.Model):
 
 class Communities(models.Model):
     
+    CHAMPIONS_LIST = [
+        
+        'Champions'(
+            ('champion1', 'Champion1'),
+            ('champion2', 'Champion2'),
+            ('champion3', 'Champion3'),
+        )
+    ]
+    
+    
+    title = models.CharField(max_length=100)
+    champions = models.CharField(max_length=50,
+                                 choices = CHAMPIONS_LIST,
+                                 default=0),
+    upvotes = models.IntegerChoices(default=0)
+    
+
+    def __str__(self) -> str:
+        return super().__str__()
