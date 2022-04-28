@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Communities, Courses, Users
+from .models import Communitie, Course, User
 
-admin.site.register(Communities),
-admin.site.register(Courses),
-admin.site.register(Users)
+admin.site.register(Communitie),
+admin.site.register(Course),
+admin.site.register(User)

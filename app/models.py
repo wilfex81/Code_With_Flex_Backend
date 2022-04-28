@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 
-class Users(models.Model):
+class User(models.Model):
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     phone = models.IntegerField(default = 0)
@@ -13,7 +13,8 @@ class Users(models.Model):
         return self.name
 
 
-class Courses(models.Model):
+class Course(models.Model):
+    
     
     COURSE_DETAILS = [
         ('Difficulty levels',(
@@ -24,6 +25,8 @@ class Courses(models.Model):
             
         ),
         
+    ]
+    TYPE_OF_COURSE = [
         ('Course Type ',(
                 ('instructor-led', 'Instructor-Led'),
                 ('on-demand', 'On-Demand'),
@@ -31,51 +34,66 @@ class Courses(models.Model):
             )
             
         ),
-        ('Lessons',(
+    ]
+    
+    LESSONS_OFFERED=[
+         ('Lessons',(
                     ('1', 'Lesson one'),
                     ('2', 'Lesson two'),
                     ('3', 'Lesson three'),
                 )
             
         ),
-        
-        ('Practical Assessment',(
+    ]
+    ASSESSMENTS=[
+          ('Practical Assessment',(
                 ('assessment_one', 'Assessment-One'),   
             )   
         ),
-        
-        
-        
-    ]    
-    
-    
-    SPECIALTY = [
+    ]
+          
+    PROGRAMMING_LANGUAGES = [
         ('Programming Languages',(
                     ('java', 'Java'),
                     ('python', 'Python'),
                     ('javascript', 'JavaScript'),
                 )
                 ),
-        
-        ('Frameworks',(
+    ]
+    FRAMEWORKS=[
+          ('Frameworks',(
                     ('java', 'Spring'),
                     ('python', 'Django'),
                     ('javascript', 'ReactJs'),
                 )
                
-                ),
-        
-    ]
-    
+         ),
+    ] 
     title = models.CharField(max_length=100)
     instructor = models.CharField(max_length=100)
     course_details = models.CharField(
         max_length=50,
         choices= COURSE_DETAILS
     )
-    specialty = models.CharField(
+    type_of_course = models.CharField(
         max_length=50,
-        choices=SPECIALTY
+        choices=TYPE_OF_COURSE
+    )
+    lessons_offered = models.CharField(
+        max_length=50,
+        choices= LESSONS_OFFERED
+    )
+    assessment = models.CharField(
+        max_length=50,
+        choices= ASSESSMENTS
+    )
+    programming_languages = models.CharField(
+        max_length=50,
+        choices= PROGRAMMING_LANGUAGES
+    )
+    frameworks = models.CharField(
+        max_length=50,
+        choices=FRAMEWORKS
     )
     price = models.IntegerField(default = 0)
         
@@ -84,7 +102,7 @@ class Courses(models.Model):
         return self.title
 
 
-class Communities(models.Model):
+class Communitie(models.Model):
     
     CHAMPIONS_LIST = [
         
