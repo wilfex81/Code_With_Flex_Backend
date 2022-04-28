@@ -1,17 +1,23 @@
 
 from django.db import models
 
-# Create your models here.
 
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(User)
+#     name = models.CharField(max_length=32)
+#     roles = models.ManyToManyField("Role", bank=True, null=True)
+
+#     def __str__(self) -> str:
+#         return super().__str__()
+    
 class User(models.Model):
-    name = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
-    phone = models.IntegerField(default = 0)
-    email = models.EmailField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
+    username = models.CharField(max_length=100, unique=True)
+    phone = models.IntegerField(unique=True)
+    email = models.EmailField(max_length=100, unique=True)
     
     
-    def __str__(self) -> str:
-            return super().__str__()
+   
 
 
 class Course(models.Model):
@@ -108,9 +114,9 @@ class Communitie(models.Model):
     CHAMPIONS_LIST = [
         
         'Champions',(
-            ('champion1', 'Champion1'),
-            ('champion2', 'Champion2'),
-            ('champion3', 'Champion3'),
+            ('champion1', 'Champion one'),
+            ('champion2', 'Champion two'),
+            ('champion3', 'Champion three'),
         ),
     ]
     
@@ -124,3 +130,42 @@ class Communitie(models.Model):
 
     def __str__(self) -> str:
         return super().__str__()
+    
+    
+#Add the three other models from this point
+class Project(models.Model):
+    
+    framework = models.CharField(max_length=100)
+    programming_language = models.CharField(max_length=100)
+    community = models.CharField(max_length=100)
+    complexity = models.CharField(max_length=100)
+    modules = models.CharField(max_length=50)
+    tasks = models.CharField(max_length=100)
+    
+    def __str__(self) -> str:
+        return super().__str__()
+        
+    
+class Article(models.Model):
+    
+    skill = models.CharField(max_length=100)
+    course = models.CharField(max_length=100)
+    project = models.CharField(max_length=100)
+    
+    def __str__(self) -> str:
+        return super().__str__()
+    
+
+class Developers(models.Model):
+    
+    name = models.CharField(unique=True, max_length=100)
+    specialty = models.CharField(max_length=100)
+    community = models.CharField(max_length=100)
+    programming_language = models.CharField(max_length=100)
+    framework = models.CharField(max_length=100)
+    
+    
+    def __str__(self) -> str:
+        return super().__str__()
+    
+    
