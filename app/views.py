@@ -143,40 +143,7 @@ class CommunitieDetails(APIView):
         community = self.get_objects(id)
         community.delete()
         return Response(status= status.HTTP_204_NO_CONTENT)
-class CourseViewSet(viewsets.ViewSet):
-    
-    def list(self,request):
-        course = Course.objects.all()
-        serializer = CourseSerializer(course, many =True)
-        return Response(serializer.data)
-    
-    def post(self, request):
-        serializer = CourseSerializer(data = request.data)
-        
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
 
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
-    
-     
-    def retrieve(self, request, pk = None):
-         
-        queryset = User.objects.all()
-        course = get_object_or_404(queryset, pk = pk)
-        serializer = CourseSerializer(course)
-        return Response(serializer.data)
-    
-    
-    def update(self, request, pk = None):
-        course = Course.objects.get(pk=pk)
-        serializer = CourseSerializer(course, data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-     
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class ArticleView(APIView):
     
@@ -375,6 +342,40 @@ class ProjectDetails(APIView):
 #     def update(self, request, pk = None):
 #         community = User.objects.get(pk=pk)
 #         serializer = CommunitieSerializer(community, data=request.data)
+
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+     
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class CourseViewSet(viewsets.ViewSet):
+    
+#     def list(self,request):
+#         course = Course.objects.all()
+#         serializer = CourseSerializer(course, many =True)
+#         return Response(serializer.data)
+    
+#     def post(self, request):
+#         serializer = CourseSerializer(data = request.data)
+        
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status = status.HTTP_201_CREATED)
+
+#         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+    
+     
+#     def retrieve(self, request, pk = None):
+         
+#         queryset = User.objects.all()
+#         course = get_object_or_404(queryset, pk = pk)
+#         serializer = CourseSerializer(course)
+#         return Response(serializer.data)
+    
+    
+#     def update(self, request, pk = None):
+#         course = Course.objects.get(pk=pk)
+#         serializer = CourseSerializer(course, data=request.data)
 
 #         if serializer.is_valid():
 #             serializer.save()

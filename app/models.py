@@ -131,8 +131,7 @@ class Communitie(models.Model):
     def __str__(self) -> str:
         return super().__str__()
     
-    
-#Add the three other models from this point
+
 class Project(models.Model):
     
     framework = models.CharField(max_length=100)
