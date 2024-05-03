@@ -15,17 +15,6 @@ class UserTests(APITestCase):
         self.assertEqual(User.objects.get().name, 'Brian')
         print('Test passed')
 
-# class CourseTests(APITestCase):
-#     def test_create_course(self):
-        
-#         url = reverse('course')
-#         data = {'title': 'Frontend'}
-#         response = self.client.post(url, data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-#         self.assertEqual(User.objects.count(), 1)
-#         self.assertEqual(User.objects.get().title, 'Frontend')
-
-
 class DeveloperTests(APITestCase):      
     def test_create_developer(self):
         
@@ -48,17 +37,6 @@ class ProjectTests(APITestCase):
         self.assertEqual(User.objects.count(), 1)
         self.assertEqual(User.objects.get().framework, 'django')
         print("Test Passed")
-
-# class CommunityTests(APITestCase):
-    
-#     def test_create_community(self):
-            
-#         url = reverse('community')
-#         data = {'title': 'my community'}
-#         response = self.client.post(url, data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-#         self.assertEqual(User.objects.count(), 1)
-#         self.assertEqual(User.objects.get().title, 'my community')
 
 class ArticleTests(APITestCase):
     
